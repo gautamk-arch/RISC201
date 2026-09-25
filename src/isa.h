@@ -1,8 +1,15 @@
 #pragma once
-#include <bits/stdc++.h>
+#include <cstdint>
+#include<iostream>
+#include <vector>
+#include <string>
+#include <stdexcept>
+#include <array>
+using std::cout;
+using std::vector;
+using std::string;
 enum class Opcode{
-    add=0,sub=1,mul=2,div=3,mod=4,cmp=5,and_op=6,or_op=7,not_op=8,mov=9,lsl=10,lsr=11,asr=12,nop=13,ld=14,st=15,beq=16,bgt=17,b=18,call=19,ret=20,
-    halt=31
+    add=0,sub=1,mul=2,div=3,mod=4,cmp=5,and_op=6,or_op=7,not_op=8,mov=9,lsl=10,lsr=11,asr=12,nop=13,ld=14,st=15,beq=16,bgt=17,b=18,call=19,ret=20
 };
 struct Instruction{
     Opcode op;
