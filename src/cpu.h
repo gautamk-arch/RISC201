@@ -1,20 +1,21 @@
 #pragma once
 #include "isa.h"
+#include <cstdint>
 #include <iostream>
 #include <vector>
 #include <array>
 #include <string>
-const int no_of_registers = 16;
+const int no_of_reg = 16;
 const int cap_of_inst_mem = 1024;
 const int cap_of_data_mem = 4096;
-const int sp_reg = 14;
-const int ra_reg = 15;
+const int sp = 14;
+const int ra = 15;
 
 class CPU
 {
 private:
     uint32_t pc;
-    std::array<int32_t, no_of_registers> regs;
+    std::array<int32_t, no_of_reg> regs;
     bool flag_E;
     bool flag_GT;
 
