@@ -92,12 +92,13 @@ void CPU::execute (Instruction inst){
         case Opcode::nop: break;
 
         // Load and store instructions. Assuming Little endian
-        case Opcode::ld:
+        case Opcode::ld:{
             uint32_t addr = A + B;
             if (addr + 3 >= cap_of_data_mem) throw std::out_of_range("Data loading failed. Out of bounds");
             regs[inst.rd] = (dataMem[addr])|(dataMem[addr+1]<<8)|(dataMem[addr+2]<<16)|(dataMem[addr+3]<<24);
             break;
-            case Opcode::st:
+        }
+        case Opcode::st:{
             uint32_t addr = A + B;
             if (addr + 3 >= cap_of_data_mem) throw std::out_of_range("Data storing failed. Out of bounds");
             dataMem[addr] = regs[inst.rd] & 0xFF;
@@ -105,6 +106,7 @@ void CPU::execute (Instruction inst){
             dataMem[addr+2] = (regs[inst.rd]>>16) & 0xFF;
             dataMem[addr+3] = (regs[inst.rd]>>24) & 0xFF;
             break;
+        }
 
         // Branch instructions
         case Opcode::b:
